@@ -21,6 +21,7 @@ import static com.bank.application.utils.GlobalConstants.DEPOSIT_SUCCESSFUL;
 import static com.bank.application.utils.GlobalConstants.TRANSFER_SUCCESSFUL;
 import static com.bank.application.utils.GlobalConstants.WITHDRAWAL_SUCCESSFUL;
 
+@Transactional
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
@@ -34,7 +35,6 @@ public class TransactionServiceImpl implements TransactionService {
         this.accountRepository = accountRepository;
     }
 
-    @Transactional
     @Override
     public TransactionResponse deposit(DepositRequest request) {
         Account account = findAccountByInputNumber(request.getAccountNumber());
@@ -53,7 +53,6 @@ public class TransactionServiceImpl implements TransactionService {
                 .build();
     }
 
-    @Transactional
     @Override
     public TransactionResponse withdraw(WithdrawRequest request) {
         Account account = findAccountByInputNumber(request.getAccountNumber());
@@ -79,7 +78,6 @@ public class TransactionServiceImpl implements TransactionService {
         }
     }
 
-    @Transactional
     @Override
     public TransactionResponse transfer(TransferRequest request) {
         BigDecimal transferAmount = request.getAmount();
