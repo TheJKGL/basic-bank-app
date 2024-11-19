@@ -10,3 +10,5 @@
 
 This application is a basic banking system for managing accounts and transactions,
 supporting deposits, withdrawals, and transfers with secure, validated operations.
+
+Navigate to localhost:8080 to see OpenApi Docs.
